@@ -1,0 +1,17 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<history>
+   <processor signature="gcc noversion nomachine -std=c++14 -c -I../../../../usr/local/include">
+      <target file="MediaClientGui.o" lastModified="17030c45797">
+         <source file="../src/sample/MediaClientGui.cpp" lastModified="17002a9d710"/>
+      </target>
+      <target file="MediaDescription.o" lastModified="17030c622f3">
+         <source file="../src/sample/MediaDescription.cpp" lastModified="16fe9348960"/>
+      </target>
+      <target file="samplemain.o" lastModified="17030c6b302">
+         <source file="../src/sample/samplemain.cpp" lastModified="16fed4e0940"/>
+      </target>
+      <target file="MediaLibrary.o" lastModified="17030c620fb">
+         <source file="../src/sample/MediaLibrary.cpp" lastModified="16fec54d460"/>
+      </target>
+   </processor>
+</history>

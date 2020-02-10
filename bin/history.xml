@@ -1,0 +1,12 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<history>
+   <processor signature="gcc -L../../../../../usr/lib -lstdc++ -lfltk -lfltk_images -lcurl -ljsoncpp -lpthread -L../../../../../usr/local/lib -lcurlpp">
+      <target file="guiSample" lastModified="17030c6b38a">
+         <source file="../../../../../usr/local/Cellar/curlpp/0.8.1/lib/libcurlpp.a" lastModified="15aa7ca6680"/>
+         <source file="../obj/MediaClientGui.o" lastModified="17030c45797"/>
+         <source file="../obj/MediaLibrary.o" lastModified="17030c620fb"/>
+         <source file="../obj/MediaDescription.o" lastModified="17030c622f3"/>
+         <source file="../obj/samplemain.o" lastModified="17030c6b302"/>
+      </target>
+   </processor>
+</history>

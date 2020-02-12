@@ -7,11 +7,20 @@
       <target file="MediaDescription.o" lastModified="17030c622f3">
          <source file="../src/sample/MediaDescription.cpp" lastModified="16fe9348960"/>
       </target>
-      <target file="samplemain.o" lastModified="17030c6b302">
-         <source file="../src/sample/samplemain.cpp" lastModified="16fed4e0940"/>
+      <target file="MusicLibrary.o" lastModified="1703698db62">
+         <source file="../src/sample/MusicLibrary.cpp" lastModified="1703136f09c"/>
       </target>
-      <target file="MediaLibrary.o" lastModified="17030c620fb">
+      <target file="Album.o" lastModified="1703698d9b6">
+         <source file="../src/sample/Album.cpp" lastModified="1703698cb6a"/>
+      </target>
+      <target file="samplemain.o" lastModified="1703698d80f">
+         <source file="../src/sample/samplemain.cpp" lastModified="170319f2a5a"/>
+      </target>
+      <target file="MediaLibrary.o" lastModified="1703698d566">
          <source file="../src/sample/MediaLibrary.cpp" lastModified="16fec54d460"/>
+      </target>
+      <target file="Track.o" lastModified="170368cbed4">
+         <source file="../src/sample/Track.cpp" lastModified="170313637b6"/>
       </target>
    </processor>
 </history>

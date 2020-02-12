@@ -1,4 +1,5 @@
 #include "MediaDescription.hpp"
+#include "Album.hpp"
 #include <string>
 #include <map>
 #include <vector>

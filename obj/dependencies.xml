@@ -38,6 +38,10 @@
       <source file="../../../../../usr/local/Cellar/fltk/1.3.5/include/FL/Fl_Input_.H" lastModified="16942d4fb00">
          <include file="../../../../../usr/local/Cellar/fltk/1.3.5/include/FL/Fl_Widget.H"/>
       </source>
+      <source file="../src/sample/Album.hpp" lastModified="1703697ca78">
+         <include file="../../../../../usr/local/Cellar/jsoncpp/1.9.1/include/json/json.h"/>
+         <include file="../src/sample/Track.hpp"/>
+      </source>
       <source file="../../../../../usr/local/Cellar/fltk/1.3.5/include/FL/fl_utf8.h" lastModified="16942d531b0">
          <include file="../../../../../usr/local/Cellar/fltk/1.3.5/include/FL/Fl_Export.H"/>
          <include file="../../../../../usr/local/Cellar/fltk/1.3.5/include/FL/fl_types.h"/>
@@ -50,9 +54,6 @@
       </source>
       <source file="../../../../../usr/local/Cellar/jsoncpp/1.9.1/include/json/forwards.h" lastModified="16be2f8d230">
          <include file="../../../../../usr/local/Cellar/jsoncpp/1.9.1/include/json/config.h"/>
-      </source>
-      <source file="../../../../../usr/local/Cellar/curlpp/0.8.1/include/curlpp/internal/OptionList.hpp" lastModified="15aa7ca6a68">
-         <include file="../../../../../usr/local/Cellar/curlpp/0.8.1/include/curlpp/OptionBase.hpp"/>
       </source>
       <source file="../../../../../usr/local/Cellar/jsoncpp/1.9.1/include/json/features.h" lastModified="16be2f8d230">
          <include file="../../../../../usr/local/Cellar/jsoncpp/1.9.1/include/json/forwards.h"/>
@@ -83,6 +84,11 @@
       <source file="../../../../../usr/local/Cellar/fltk/1.3.5/include/FL/Fl_Slider.H" lastModified="16942d4fb00">
          <include file="../../../../../usr/local/Cellar/fltk/1.3.5/include/FL/Fl_Valuator.H"/>
       </source>
+      <source file="../src/sample/Album.cpp" lastModified="1703698cf52">
+         <include file="../src/sample/Album.hpp"/>
+         <include file="../../../../../usr/local/Cellar/jsoncpp/1.9.1/include/json/json.h"/>
+         <include file="../../../../../usr/local/Cellar/jsoncpp/1.9.1/include/json/value.h"/>
+      </source>
       <source file="../../../../../usr/local/Cellar/fltk/1.3.5/include/FL/Fl_Scrollbar.H" lastModified="16942d4fb00">
          <include file="../../../../../usr/local/Cellar/fltk/1.3.5/include/FL/Fl_Slider.H"/>
       </source>
@@ -106,10 +112,6 @@
          <include file="../../../../../usr/local/Cellar/curlpp/0.8.1/include/curlpp/Option.hpp"/>
          <include file="../../../../../usr/local/Cellar/curlpp/0.8.1/include/curlpp/Easy.inl"/>
       </source>
-      <source file="../../../../../usr/local/Cellar/curlpp/0.8.1/include/curlpp/Option.inl" lastModified="15aa7ca6a68">
-         <include file="../../../../../usr/local/Cellar/curlpp/0.8.1/include/curlpp/internal/OptionSetter.hpp"/>
-         <include file="../../../../../usr/local/Cellar/curlpp/0.8.1/include/curlpp/Exception.hpp"/>
-      </source>
       <source file="../../../../../usr/local/Cellar/fltk/1.3.5/include/FL/Fl_RGB_Image.H" lastModified="16942d4fb00">
          <include file="../../../../../usr/local/Cellar/fltk/1.3.5/include/FL/Fl_Image.H"/>
       </source>
@@ -127,22 +129,21 @@
       <source file="../../../../../usr/local/Cellar/fltk/1.3.5/include/FL/Fl_Text_Buffer.H" lastModified="16942d4fee8">
          <include file="../../../../../usr/local/Cellar/fltk/1.3.5/include/FL/Fl_Export.H"/>
       </source>
-      <source file="../src/sample/MediaLibrary.hpp" lastModified="16fec4afcd8">
+      <source file="../src/sample/MusicLibrary.hpp" lastModified="1703664b774">
+         <include file="../src/sample/Album.hpp"/>
+      </source>
+      <source file="../src/sample/MediaLibrary.hpp" lastModified="17032adf331">
          <include file="../src/sample/MediaDescription.hpp"/>
+         <include file="../src/sample/Album.hpp"/>
          <include file="../../../../../usr/local/Cellar/jsoncpp/1.9.1/include/json/json.h"/>
       </source>
       <source file="../../../../../usr/local/Cellar/fltk/1.3.5/include/FL/fl_types.h" lastModified="16942d4fb00">
-      </source>
-      <source file="../../../../../usr/local/Cellar/curlpp/0.8.1/include/curlpp/Form.hpp" lastModified="15aa7ca7238">
-         <include file="../../../../../usr/local/Cellar/curlpp/0.8.1/include/utilspp/clone_ptr.hpp"/>
       </source>
       <source file="../../../../../usr/local/Cellar/fltk/1.3.5/include/FL/x.H" lastModified="16942d506b8">
          <include file="../../../../../usr/local/Cellar/fltk/1.3.5/include/FL/Enumerations.H"/>
          <include file="../../../../../usr/local/Cellar/fltk/1.3.5/include/FL/win32.H"/>
          <include file="../../../../../usr/local/Cellar/fltk/1.3.5/include/FL/mac.H"/>
          <include file="../../../../../usr/local/Cellar/fltk/1.3.5/include/FL/Fl_Window.H"/>
-      </source>
-      <source file="../../../../../usr/local/Cellar/curlpp/0.8.1/include/curlpp/internal/OptionSetter.inl" lastModified="15aa7ca6a68">
       </source>
       <source file="../../../../../usr/local/Cellar/curlpp/0.8.1/include/curlpp/internal/OptionContainer.inl" lastModified="15aa7ca6680">
       </source>
@@ -161,21 +162,17 @@
          <include file="../../../../../usr/local/Cellar/fltk/1.3.5/include/FL/Fl_Scrollbar.H"/>
          <include file="../../../../../usr/local/Cellar/fltk/1.3.5/include/FL/Fl.H"/>
       </source>
-      <source file="../../../../../usr/local/Cellar/curlpp/0.8.1/include/curlpp/OptionBase.hpp" lastModified="15aa7ca6a68">
-      </source>
       <source file="../../../../../usr/local/Cellar/fltk/1.3.5/include/FL/Fl_PNG_Image.H" lastModified="16942d4fb00">
          <include file="../../../../../usr/local/Cellar/fltk/1.3.5/include/FL/Fl_Image.H"/>
-      </source>
-      <source file="../../../../../usr/local/Cellar/curlpp/0.8.1/include/curlpp/internal/OptionContainerType.hpp" lastModified="15aa7ca6e50">
-         <include file="../../../../../usr/local/Cellar/curlpp/0.8.1/include/curlpp/internal/SList.hpp"/>
-         <include file="../../../../../usr/local/Cellar/curlpp/0.8.1/include/curlpp/Form.hpp"/>
-         <include file="../../../../../usr/local/Cellar/curlpp/0.8.1/include/curlpp/Types.hpp"/>
       </source>
       <source file="../../../../../usr/local/Cellar/jsoncpp/1.9.1/include/json/autolink.h" lastModified="16be2f8d618">
          <include file="../../../../../usr/local/Cellar/jsoncpp/1.9.1/include/json/config.h"/>
          <include file="../../../../../usr/local/Cellar/jsoncpp/1.9.1/include/json/autolink.h"/>
       </source>
-      <source file="../../../../../usr/local/Cellar/curlpp/0.8.1/include/curlpp/internal/SList.hpp" lastModified="15aa7ca7238">
+      <source file="../src/sample/MusicLibrary.cpp" lastModified="1703136f09c">
+         <include file="../src/sample/MusicLibrary.hpp"/>
+      </source>
+      <source file="../src/sample/Track.hpp" lastModified="170369956b3">
       </source>
       <source file="../src/sample/MediaClientGui.cpp" lastModified="17002a9e2c8">
          <include file="../../../../../usr/local/Cellar/fltk/1.3.5/include/FL/Fl.H"/>
@@ -207,8 +204,6 @@
       <source file="../../../../../usr/local/Cellar/fltk/1.3.5/include/FL/Fl_Menu_Bar.H" lastModified="16942d4fb00">
          <include file="../../../../../usr/local/Cellar/fltk/1.3.5/include/FL/Fl_Menu_.H"/>
       </source>
-      <source file="../../../../../usr/local/Cellar/curlpp/0.8.1/include/curlpp/Types.hpp" lastModified="15aa7ca6a68">
-      </source>
       <source file="../../../../../usr/local/Cellar/curlpp/0.8.1/include/curlpp/Easy.inl" lastModified="15aa7ca6680">
       </source>
       <source file="../../../../../usr/local/Cellar/fltk/1.3.5/include/FL/Fl_Multiline_Input.H" lastModified="16942d4fb00">
@@ -226,9 +221,10 @@
          <include file="../../../../../usr/local/Cellar/fltk/1.3.5/include/FL/Fl_Tree_Item_Array.H"/>
          <include file="../../../../../usr/local/Cellar/fltk/1.3.5/include/FL/Fl_Tree_Prefs.H"/>
       </source>
-      <source file="../src/sample/samplemain.cpp" lastModified="16fed4e2498">
+      <source file="../src/sample/samplemain.cpp" lastModified="170319f45b2">
          <include file="../src/sample/MediaClientGui.cpp"/>
          <include file="../src/sample/MediaLibrary.hpp"/>
+         <include file="../src/sample/Album.hpp"/>
          <include file="../../../../../usr/local/Cellar/fltk/1.3.5/include/FL/Fl.H"/>
          <include file="../../../../../usr/local/Cellar/fltk/1.3.5/include/FL/Fl_Window.H"/>
          <include file="../../../../../usr/local/Cellar/fltk/1.3.5/include/FL/Fl_Button.H"/>
@@ -245,6 +241,9 @@
          <include file="../../../../../usr/local/Cellar/jsoncpp/1.9.1/include/json/features.h"/>
          <include file="../../../../../usr/local/Cellar/jsoncpp/1.9.1/include/json/value.h"/>
       </source>
+      <source file="../src/sample/Track.cpp" lastModified="170313637b6">
+         <include file="../src/sample/Track.hpp"/>
+      </source>
       <source file="../../../../../usr/local/Cellar/fltk/1.3.5/include/FL/abi-version.h" lastModified="16942d4fb00">
       </source>
       <source file="../../../../../usr/local/Cellar/fltk/1.3.5/include/FL/mac.H" lastModified="16942d502d0">
@@ -256,8 +255,6 @@
       </source>
       <source file="../../../../../usr/local/Cellar/fltk/1.3.5/include/FL/Fl_Button.H" lastModified="16942d4fb00">
          <include file="../../../../../usr/local/Cellar/fltk/1.3.5/include/FL/Fl_Widget.H"/>
-      </source>
-      <source file="../../../../../usr/local/Cellar/curlpp/0.8.1/include/utilspp/clone_ptr.hpp" lastModified="15aa7ca6e50">
       </source>
       <source file="../../../../../usr/local/Cellar/jsoncpp/1.9.1/include/json/allocator.h" lastModified="16be2f8da00">
       </source>
@@ -274,11 +271,6 @@
       </source>
       <source file="../../../../../usr/local/Cellar/fltk/1.3.5/include/FL/Fl_Bitmap.H" lastModified="16942d4fb00">
          <include file="../../../../../usr/local/Cellar/fltk/1.3.5/include/FL/Fl_Image.H"/>
-      </source>
-      <source file="../../../../../usr/local/Cellar/curlpp/0.8.1/include/curlpp/internal/CurlHandle.hpp" lastModified="15aa7ca6e50">
-         <include file="../../../../../usr/local/Cellar/curlpp/0.8.1/include/curlpp/Exception.hpp"/>
-         <include file="../../../../../usr/local/Cellar/curlpp/0.8.1/include/curlpp/Types.hpp"/>
-         <include file="../../../../../usr/local/Cellar/curlpp/0.8.1/include/curlpp/internal/CurlHandle.inl"/>
       </source>
       <source file="../../../../../usr/local/Cellar/curlpp/0.8.1/include/curlpp/Exception.hpp" lastModified="15aa7ca7238">
       </source>

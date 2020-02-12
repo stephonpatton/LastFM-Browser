@@ -1,5 +1,6 @@
 #include "MediaClientGui.cpp"
 #include "MediaLibrary.hpp"
+#include "Album.hpp"
 
 #include <FL/Fl.H>
 #include <FL/Fl_Window.H>
@@ -93,6 +94,8 @@ public:
    
    std::thread * playThread;
    MediaLibrary * library;
+
+
    
 /** ClickedX is one of the callbacks for GUI controls.
     * Callbacks need to be static functions. But, static functions
@@ -105,6 +108,7 @@ public:
       std::cout << "You clicked Exit" << std::endl;
       exit(1);
    }
+
 
    /**
     * Static search button callback method. 
@@ -323,5 +327,8 @@ int main(int argc, char * argv[]) {
    std::string lastfmkey = (argc>2)?argv[2]:"lastfmkey";
    std::string windowTitle = developer + "'s Music Browser";
    MediaClient cm(windowTitle.c_str(),lastfmkey.c_str());
+
+
+
    return (Fl::run());
 }

@@ -9,7 +9,7 @@
 #include <json/json.h>
 #include "Track.hpp"
 
-using namespace std;
+//using namespace std;
 
 class Album {
 public:
@@ -25,6 +25,7 @@ public:
 
     std::string setLastFMKey(std::string);
     Track getTrack(Track track);
+    Album parseLastFMJson(std::string aJsonString);
 private:
     std::string lastFMkey;
 };

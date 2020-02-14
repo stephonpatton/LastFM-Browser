@@ -8,6 +8,7 @@
 
 
 #include "Album.hpp"
+#include "Track.hpp"
 
 
 //#endif //UNTITLED_MUSICLIBRARY_HPP

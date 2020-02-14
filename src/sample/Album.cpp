@@ -14,18 +14,22 @@ using namespace std;
 
 Album::Album() {
     lastFMkey = "hello";
-
 }
+
+
 
 Album::~Album() {
 }
 
+Album Album::parseLastFMJson(std::string aJsonString) {
+
+}
 
 std::string Album::setLastFMKey(std::string key) {
     lastFMkey = key;
     return lastFMkey;
 }
 
-Track Album::getTrack(Track track) {
-    track.getTrack();
-}
+//Track Album::getTrack(Track track) {
+//    track.getTrack();
+//}

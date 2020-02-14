@@ -6,12 +6,14 @@
 #define UNTITLED_TRACK_HPP
 
 #include <iostream>
+//#include "samplemain.cpp"
 
-using std;
+//using std;
 
 class Track {
 public:
     std::string getTrack();
+    void setKey(std::string key);
 
 };
 

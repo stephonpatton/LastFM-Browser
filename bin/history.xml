@@ -1,15 +1,15 @@
 <?xml version='1.0' encoding='UTF-8'?>
 <history>
    <processor signature="gcc -L../../../../../usr/lib -lstdc++ -lfltk -lfltk_images -lcurl -ljsoncpp -lpthread -L../../../../../usr/local/lib -lcurlpp">
-      <target file="guiSample" lastModified="170369815e2">
+      <target file="guiSample" lastModified="17044ce706d">
          <source file="../../../../../usr/local/Cellar/curlpp/0.8.1/lib/libcurlpp.a" lastModified="15aa7ca6680"/>
          <source file="../obj/MediaClientGui.o" lastModified="17030c45797"/>
-         <source file="../obj/MediaLibrary.o" lastModified="1703697d330"/>
+         <source file="../obj/MediaLibrary.o" lastModified="170449f661a"/>
          <source file="../obj/MediaDescription.o" lastModified="17030c622f3"/>
-         <source file="../obj/samplemain.o" lastModified="1703697d61c"/>
-         <source file="../obj/Album.o" lastModified="17036981588"/>
-         <source file="../obj/Track.o" lastModified="170368cbed4"/>
-         <source file="../obj/MusicLibrary.o" lastModified="1703697d97b"/>
+         <source file="../obj/samplemain.o" lastModified="17044ce702d"/>
+         <source file="../obj/Album.o" lastModified="17044ac79f6"/>
+         <source file="../obj/Track.o" lastModified="170449f6b7a"/>
+         <source file="../obj/MusicLibrary.o" lastModified="17044a1ba69"/>
       </target>
    </processor>
 </history>

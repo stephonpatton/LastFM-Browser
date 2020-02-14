@@ -7,19 +7,19 @@
       <target file="MediaDescription.o" lastModified="17030c622f3">
          <source file="../src/sample/MediaDescription.cpp" lastModified="16fe9348960"/>
       </target>
-      <target file="MusicLibrary.o" lastModified="1703698db62">
+      <target file="Album.o" lastModified="17044ac79f6">
+         <source file="../src/sample/Album.cpp" lastModified="17044ab7640"/>
+      </target>
+      <target file="MusicLibrary.o" lastModified="17044a1ba69">
          <source file="../src/sample/MusicLibrary.cpp" lastModified="1703136f09c"/>
       </target>
-      <target file="Album.o" lastModified="1703698d9b6">
-         <source file="../src/sample/Album.cpp" lastModified="1703698cb6a"/>
+      <target file="samplemain.o" lastModified="17044ce702d">
+         <source file="../src/sample/samplemain.cpp" lastModified="17044cd3356"/>
       </target>
-      <target file="samplemain.o" lastModified="1703698d80f">
-         <source file="../src/sample/samplemain.cpp" lastModified="170319f2a5a"/>
-      </target>
-      <target file="MediaLibrary.o" lastModified="1703698d566">
+      <target file="MediaLibrary.o" lastModified="170449f661a">
          <source file="../src/sample/MediaLibrary.cpp" lastModified="16fec54d460"/>
       </target>
-      <target file="Track.o" lastModified="170368cbed4">
+      <target file="Track.o" lastModified="170449f6b7a">
          <source file="../src/sample/Track.cpp" lastModified="170313637b6"/>
       </target>
    </processor>

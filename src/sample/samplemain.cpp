@@ -96,6 +96,7 @@ public:
    MediaLibrary * library;
 
 
+
    
 /** ClickedX is one of the callbacks for GUI controls.
     * Callbacks need to be static functions. But, static functions
@@ -119,8 +120,16 @@ public:
          o->albSrchInput->value() << " by artist: " <<
          o->artSrchInput->value() << endl;
       try{
-         std::string url = "http://ws.audioscrobbler.com/2.0/?method=album.getinfo&artist=Cher&album=The+Very+Best+Of+Cher&format=json&api_key=";
+
+          //TODO: Delete if everything keeps working
+//         std::string url = "http://ws.audioscrobbler.com/2.0/?method=album.getinfo&artist=Cher&album=The+Very+Best+Of+Cher&format=json&api_key=";
+         std::string url = "http://ws.audioscrobbler.com/2.0/?method=album.getinfo&artist=";
+         url = url + o->artSrchInput->value();
+         url = url + "&album=";
+         url = url + o->albSrchInput->value();
+         url = url + "&format=json&api_key=";
          url = url + o->lastfmkey;
+
          cout << "sending request url: " << url << endl;
          std::ostringstream os;
          curlpp::Easy myRequest;
@@ -137,6 +146,10 @@ public:
       catch ( curlpp::RuntimeError & e ) {
          std::cout << e.what() << std::endl;
       }
+   }
+
+   std::string getLastFMKey() {
+       return lastfmkey;
    }
 
    // Static menu callback method

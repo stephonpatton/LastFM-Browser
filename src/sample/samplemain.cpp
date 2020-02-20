@@ -148,6 +148,7 @@ public:
       }
    }
 
+   //TODO: Maybe delete?
    std::string getLastFMKey() {
        return lastfmkey;
    }

@@ -1,26 +1,26 @@
 <?xml version='1.0' encoding='UTF-8'?>
 <history>
    <processor signature="gcc noversion nomachine -std=c++14 -c -I../../../../usr/local/include">
-      <target file="MediaClientGui.o" lastModified="17030c45797">
+      <target file="MediaClientGui.o" lastModified="1706af5390e">
          <source file="../src/sample/MediaClientGui.cpp" lastModified="17002a9d710"/>
       </target>
-      <target file="MediaDescription.o" lastModified="17030c622f3">
+      <target file="MediaDescription.o" lastModified="1706af53f1c">
          <source file="../src/sample/MediaDescription.cpp" lastModified="16fe9348960"/>
       </target>
-      <target file="Album.o" lastModified="17044ac79f6">
-         <source file="../src/sample/Album.cpp" lastModified="17044ab7640"/>
+      <target file="MusicLibrary.o" lastModified="1706b02a6eb">
+         <source file="../src/sample/MusicLibrary.cpp" lastModified="1704c89a8e8"/>
       </target>
-      <target file="MusicLibrary.o" lastModified="17044a1ba69">
-         <source file="../src/sample/MusicLibrary.cpp" lastModified="1703136f09c"/>
+      <target file="Album.o" lastModified="1706af543e3">
+         <source file="../src/sample/Album.cpp" lastModified="1706a13f862"/>
       </target>
-      <target file="samplemain.o" lastModified="17044ce702d">
-         <source file="../src/sample/samplemain.cpp" lastModified="17044cd3356"/>
+      <target file="samplemain.o" lastModified="1706af54220">
+         <source file="../src/sample/samplemain.cpp" lastModified="17064188456"/>
       </target>
-      <target file="MediaLibrary.o" lastModified="170449f661a">
-         <source file="../src/sample/MediaLibrary.cpp" lastModified="16fec54d460"/>
+      <target file="MediaLibrary.o" lastModified="1706af53d26">
+         <source file="../src/sample/MediaLibrary.cpp" lastModified="1706413b5a1"/>
       </target>
-      <target file="Track.o" lastModified="170449f6b7a">
-         <source file="../src/sample/Track.cpp" lastModified="170313637b6"/>
+      <target file="Track.o" lastModified="1706afdf42c">
+         <source file="../src/sample/Track.cpp" lastModified="1706afde741"/>
       </target>
    </processor>
 </history>

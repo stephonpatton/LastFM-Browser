@@ -34,5 +34,11 @@
      "author":"Roy Orbison",
      "album":"Roy",
      "genre":"60s",
-     "typeExt":"mp3"}
+     "typeExt":"mp3"},
+    "Purpose":
+    {"title":"Love Yourself",
+    "author":"Justin Bieber",
+    "album":"Purpose",
+    "genre":"Pop",
+    "typeExt":"mp3"}
 }

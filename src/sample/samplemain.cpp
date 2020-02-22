@@ -24,7 +24,8 @@
 using namespace std;
 
 std::string cmd;
-void run(){
+void run()
+{
    system(cmd.c_str());
 }
 
@@ -85,44 +86,41 @@ void run(){
  * @file    samplemain.cpp
  * @date    January, 2020
  **/
-class MediaClient : public MediaClientGui {
+class MediaClient : public MediaClientGui
+{
 
 public:
-
    std::string userId;
    std::string lastfmkey;
-   
-   std::thread * playThread;
-   MediaLibrary * library;
 
+   std::thread *playThread;
+   MediaLibrary *library;
 
-
-   
-/** ClickedX is one of the callbacks for GUI controls.
+   /** ClickedX is one of the callbacks for GUI controls.
     * Callbacks need to be static functions. But, static functions
     * cannot directly access instance data. This program uses "userdata"
     * to get around that by passing the instance to the callback
     * function. The callback then accesses whatever GUI control object
     * that it needs for implementing its functionality.
     */
-   static void ClickedX(Fl_Widget * w, void * userdata) {
+   static void ClickedX(Fl_Widget *w, void *userdata)
+   {
       std::cout << "You clicked Exit" << std::endl;
       exit(1);
    }
 
-
    /**
     * Static search button callback method. 
     */
-   static void SearchCallbackS(Fl_Widget*w, void*data) {
-      MediaClient *o = (MediaClient*)data;
-      cout << "Search Clicked. You asked for a last.fm search of album: " <<
-         o->albSrchInput->value() << " by artist: " <<
-         o->artSrchInput->value() << endl;
-      try{
+   static void SearchCallbackS(Fl_Widget *w, void *data)
+   {
+      MediaClient *o = (MediaClient *)data;
+      cout << "Search Clicked. You asked for a last.fm search of album: " << o->albSrchInput->value() << " by artist: " << o->artSrchInput->value() << endl;
+      try
+      {
 
-          //TODO: Delete if everything keeps working
-//         std::string url = "http://ws.audioscrobbler.com/2.0/?method=album.getinfo&artist=Cher&album=The+Very+Best+Of+Cher&format=json&api_key=";
+         //TODO: Delete if everything keeps working
+         //         std::string url = "http://ws.audioscrobbler.com/2.0/?method=album.getinfo&artist=Cher&album=The+Very+Best+Of+Cher&format=json&api_key=";
          std::string url = "http://ws.audioscrobbler.com/2.0/?method=album.getinfo&artist=";
          url = url + o->artSrchInput->value();
          url = url + "&album=";
@@ -138,24 +136,35 @@ public:
          myRequest.setOpt(new curlpp::options::Url(url.c_str()));
          myRequest.perform();
          std::string aString = os.str();
+
+         Album album = Album();
+         album.parseLastFMJson(aString);
+         string jsonFile = "media.json";
+         MediaLibrary lib = MediaLibrary();
+         lib.addAlbumFromLastfmString("medias.json", aString);
+
          std::cout << aString << std::endl;
-   
-      }catch ( curlpp::LogicError & e ) {
+      }
+      catch (curlpp::LogicError &e)
+      {
          std::cout << e.what() << std::endl;
       }
-      catch ( curlpp::RuntimeError & e ) {
+      catch (curlpp::RuntimeError &e)
+      {
          std::cout << e.what() << std::endl;
       }
    }
 
    //TODO: Maybe delete?
-   std::string getLastFMKey() {
-       return lastfmkey;
+   std::string getLastFMKey()
+   {
+      return lastfmkey;
    }
 
    // Static menu callback method
-   static void TreeCallbackS(Fl_Widget*w, void*data) {
-      MediaClient *o = (MediaClient*)data;
+   static void TreeCallbackS(Fl_Widget *w, void *data)
+   {
+      MediaClient *o = (MediaClient *)data;
       o->TreeCallback(); //call the instance callback method
    }
 
@@ -163,104 +172,152 @@ public:
     * TreeCallback is a callback for tree selections, deselections, expand or
     * collapse.
     */
-   void TreeCallback() {
+   void TreeCallback()
+   {
       // Find item that was clicked
-      Fl_Tree_Item *item = (Fl_Tree_Item*)tree->item_clicked();
+      Fl_Tree_Item *item = (Fl_Tree_Item *)tree->item_clicked();
       cout << "Tree callback. Item selected: ";
-      if ( item ) {
+      if (item)
+      {
          cout << item->label();
-      } else {
+      }
+      else
+      {
          cout << "none";
       }
       cout << endl;
       std::string aStr("unknown");
       std::string aTitle(item->label());
-      switch ( tree->callback_reason() ) {  // reason callback was invoked
-      case       FL_TREE_REASON_NONE: {aStr = "none"; break;}
-      case     FL_TREE_REASON_OPENED: {aStr = "opened";break;}
-      case     FL_TREE_REASON_CLOSED: {aStr = "closed"; break;}
-      case   FL_TREE_REASON_SELECTED: {
+      switch (tree->callback_reason())
+      { // reason callback was invoked
+      case FL_TREE_REASON_NONE:
+      {
+         aStr = "none";
+         break;
+      }
+      case FL_TREE_REASON_OPENED:
+      {
+         aStr = "opened";
+         break;
+      }
+      case FL_TREE_REASON_CLOSED:
+      {
+         aStr = "closed";
+         break;
+      }
+      case FL_TREE_REASON_SELECTED:
+      {
          aStr = "selected";
          MediaDescription md;
-         if(library){
+         if (library)
+         {
             cout << "trying to get: " << item->label() << endl;
             md = library->get(aTitle);
-         }else{
+         }
+         else
+         {
             cout << "library entry not found" << endl;
             break;
          }
-         cout << "media: "<< md.title << " " << md.album << " "
+         cout << "media: " << md.title << " " << md.album << " "
               << md.author << " " << md.genre << " " << md.typeExt
               << endl;
          trackInput->value(md.title.c_str());
          albumInput->value(md.album.c_str());
          authorInput->value(md.author.c_str());
          rankInput->value(md.genre.c_str());
-         genreChoice->value(md.typeExt.c_str()=="mp3"?0:1);
+         genreChoice->value(md.typeExt.c_str() == "mp3" ? 0 : 1);
          break;
       }
-      case FL_TREE_REASON_DESELECTED: {aStr = "deselected"; break;}
-      default: {break;}
+      case FL_TREE_REASON_DESELECTED:
+      {
+         aStr = "deselected";
+         break;
+      }
+      default:
+      {
+         break;
+      }
       }
       cout << "Callback reason: " << aStr.c_str() << endl;
    }
 
    // Static menu callback method
-   static void Menu_ClickedS(Fl_Widget*w, void*data) {
-      MediaClient *o = (MediaClient*)data;
+   static void Menu_ClickedS(Fl_Widget *w, void *data)
+   {
+      MediaClient *o = (MediaClient *)data;
       o->Menu_Clicked(); //call the instance callback method
    }
 
    // Menu selection instance method that has ccess to instance vars.
-   void Menu_Clicked() {
+   void Menu_Clicked()
+   {
       char picked[80];
-      menubar->item_pathname(picked, sizeof(picked)-1);
+      menubar->item_pathname(picked, sizeof(picked) - 1);
       string selectPath(picked);
       cout << "Selected Menu Path: " << selectPath << endl;
       int select = genreChoice->value();
-      cout << "Selected genre: " << ((select==0)?"rock":"blues") << endl;
+      cout << "Selected genre: " << ((select == 0) ? "rock" : "blues") << endl;
       // Handle menu selections
-      if(selectPath.compare("File/Save")==0){
+      if (selectPath.compare("File/Save") == 0)
+      {
          bool restSave = library->toJsonFile("mediacollection.json");
          cout << "Save not implemented" << endl;
-      }else if(selectPath.compare("File/Restore")==0){
+      }
+      else if (selectPath.compare("File/Restore") == 0)
+      {
          cout << "Restore not implemented" << endl;
-      }else if(selectPath.compare("File/Tree Refresh")==0){
+      }
+      else if (selectPath.compare("File/Tree Refresh") == 0)
+      {
          buildTree();
-      }else if(selectPath.compare("File/Exit")==0){
-         if(playThread && playThread->joinable()){
+      }
+      else if (selectPath.compare("File/Exit") == 0)
+      {
+         if (playThread && playThread->joinable())
+         {
             playThread->join();
          }
          exit(0);
-      }else if(selectPath.compare("Track/Add")==0){
+      }
+      else if (selectPath.compare("Track/Add") == 0)
+      {
+         //TODO: Implement add track
          cout << "Add not implemented" << endl;
-      }else if(selectPath.compare("Track/Remove")==0){
+      }
+      else if (selectPath.compare("Track/Remove") == 0)
+      {
          cout << "Remove not implemented" << endl;
-      }else if(selectPath.compare("Track/Play")==0){
+      }
+      else if (selectPath.compare("Track/Play") == 0)
+      {
          std::string unameres = exec("uname");
          std::string pwdPath = exec("pwd");
-         pwdPath = pwdPath.substr(0,pwdPath.length()-1);
+         pwdPath = pwdPath.substr(0, pwdPath.length() - 1);
          std::cout << "OS type is: " << unameres << " curr.dir is: "
                    << pwdPath << std::endl;
          // This path is only valid on linux so we will have to check ostype
          std::stringstream streamLinux;
          streamLinux << "/usr/bin/vlc "
                      << pwdPath << "/MediaFiles/" << trackInput->value()
-                     << ".mp3" ;
+                     << ".mp3";
          std::string aStr("Linux");
          std::stringstream streamMac;
          streamMac << "/Applications/VLC.app/Contents/MacOS/VLC "
                    << pwdPath << "/MediaFiles/" << trackInput->value()
-                   << ".mp3" ;
+                   << ".mp3";
          cout << "mac command: " << streamMac.str() << endl;
          cout << "linux command: " << streamLinux.str() << endl;
          // start vlc to play the media file
          //limit the comparison to the length of Linux to remove new line char
-         if(unameres.compare(0,aStr.length(),aStr)==0){
+         if (unameres.compare(0, aStr.length(), aStr) == 0)
+         {
             string argLinux(streamLinux.str());
             cmd = argLinux;
             playThread = new std::thread(run);
-         }else{
+         }
+         else
+         {
             string arg(streamMac.str());
             cmd = arg;
             playThread = new std::thread(run);
@@ -272,16 +329,19 @@ public:
     * a static method to remove spaces, tabs, new lines and returns from the
     * begining or end of a string.
     */
-   static std::string& trimMe (std::string& str) {
+   static std::string &trimMe(std::string &str)
+   {
       // right trim
-      while (str.length() > 0 && (str[str.length()-1] == ' '  ||
-                                  str[str.length()-1] == '\t' ||
-                                  str[str.length()-1] == '\n' ||
-                                  str[str.length()-1] == '\r')){
-         str.erase(str.length ()-1, 1);
+      while (str.length() > 0 && (str[str.length() - 1] == ' ' ||
+                                  str[str.length() - 1] == '\t' ||
+                                  str[str.length() - 1] == '\n' ||
+                                  str[str.length() - 1] == '\r'))
+      {
+         str.erase(str.length() - 1, 1);
       }
       // left trim
-      while (str.length () > 0 && (str[0] == ' ' || str[0] == '\t')){
+      while (str.length() > 0 && (str[0] == ' ' || str[0] == '\t'))
+      {
          str.erase(0, 1);
       }
       return str;
@@ -291,43 +351,49 @@ public:
     * a method to execute a command line command and to return
     * the resulting string.
     */
-   std::string exec(const char* cmd) {
-      FILE* pipe = popen(cmd, "r");
-      if (!pipe) return "ERROR";
+   std::string exec(const char *cmd)
+   {
+      FILE *pipe = popen(cmd, "r");
+      if (!pipe)
+         return "ERROR";
       char buffer[128];
       std::string result = "";
-      while(!feof(pipe)) {
-         if(fgets(buffer, 128, pipe) != NULL)
+      while (!feof(pipe))
+      {
+         if (fgets(buffer, 128, pipe) != NULL)
             result += buffer;
       }
       pclose(pipe);
       return result;
    }
 
-   void buildTree(){
+   void buildTree()
+   {
       vector<string> result = library->getTitles();
       cout << "server has titles";
       tree->clear();
-      for(int i=0; i<result.size(); i++){
+      for (int i = 0; i < result.size(); i++)
+      {
          cout << " " << result[i];
          MediaDescription md = library->get(result[i]);
          cout << md.title << " " << md.album << " " << md.author
               << " " << md.genre << endl;
          std::stringstream stream;
          stream << "Music"
-                      << "/"
-                      << md.album
-                      << "/" << md.title;
+                << "/"
+                << md.album
+                << "/" << md.title;
          tree->add(stream.str().c_str());
       }
       cout << endl;
       tree->redraw();
    }
 
-   MediaClient(const char * name = "Tim", const char * key = "myKey") : MediaClientGui(name) {
-      searchButt->callback(SearchCallbackS, (void*)this);
-      menubar->callback(Menu_ClickedS, (void*)this);
-      tree->callback(TreeCallbackS, (void*)this);
+   MediaClient(const char *name = "Tim", const char *key = "myKey") : MediaClientGui(name)
+   {
+      searchButt->callback(SearchCallbackS, (void *)this);
+      menubar->callback(Menu_ClickedS, (void *)this);
+      tree->callback(TreeCallbackS, (void *)this);
       callback(ClickedX);
       lastfmkey = key;
       userId = "Tim.Lindquist";
@@ -336,13 +402,12 @@ public:
    }
 };
 
-int main(int argc, char * argv[]) {
-   std::string developer = (argc>1)?argv[1]:"Tim.Lindquist";
-   std::string lastfmkey = (argc>2)?argv[2]:"lastfmkey";
+int main(int argc, char *argv[])
+{
+   std::string developer = (argc > 1) ? argv[1] : "Tim.Lindquist";
+   std::string lastfmkey = (argc > 2) ? argv[2] : "lastfmkey";
    std::string windowTitle = developer + "'s Music Browser";
-   MediaClient cm(windowTitle.c_str(),lastfmkey.c_str());
-
-
+   MediaClient cm(windowTitle.c_str(), lastfmkey.c_str());
 
    return (Fl::run());
 }

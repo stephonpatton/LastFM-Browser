@@ -13,9 +13,10 @@
    <property name="lastfmkey" value="mylastfmkey"/>
    <property environment="env"/>
    <property name="userId" value="${env.USER}"/>
+   <!-- <property name="port-1099" value="port-1099"/> -->
 
    <target name="targets">
-     <echo message="targets are clean, prepare, build.sample, execute.sample, targets"/>
+     <echo message="targets are clean, prepare, build, execute, targets"/>
      <echo message="execute manually with: ./bin/guiSample"/>
    </target>
 
@@ -49,7 +50,7 @@
       <echo message="base directory is: ${basedir}"/>
    </target>
 
-   <target name="build.sample" depends="prepare">
+   <target name="build" depends="prepare">
       <cc outtype="executable" subsystem="console"
           outfile="${dist.dir}/guiSample"
           objdir="${obj.dir}">
@@ -63,11 +64,69 @@
       </cc>
    </target>
 
-   <target name="execute.sample" depends="build.sample">
+<!--    TODO: change target from .sample to normal-->
+   <target name="execute" depends="build">
      <echo message="./bin/guiSample ${userId} ${lastfmkey}"/>
      <exec executable="./bin/guiSample">
        <arg line= "${userId} ${lastfmkey}"/>
      </exec>
    </target>
+
+
+   <!-- <target name="build.all"
+           depends="clean,prepare,build.server,build.client"
+           description="Clean then build cpp server, cpp client and java client"/>
+
+<target name="build.client" depends="generate.client.stub">
+      <cc outtype="executable" subsystem="console"
+          outfile="${dist.dir}/studentRPCClient"
+          objdir="${obj.dir}/client">
+         <compilerarg value="${cxxflag}"/>
+         <includepath>
+            <pathelement path="${includepath}"/>
+         </includepath>
+         <libset dir="${client.lib.path}" libs="${client.lib.list}"/>
+         <fileset dir="${src.dir}/cpp/client" includes="StudentTerminalClient.cpp"/>
+         <fileset dir="${src.dir}/cpp/server" includes="Student.cpp"/>
+      </cc>
+   </target>
+
+   <target name="generate.client.stub" depends="prepare">
+      <exec dir="${basedir}" executable="jsonrpcstub">
+         <arg line="${json.file.name} -cpp-client=studentcollectionstub"/>
+      </exec>
+      <copy file="studentcollectionstub.h"
+            tofile="${src.dir}/cpp/client/studentcollectionstub.h"/>
+      <delete file="studentcollectionstub.h"/>
+   </target> -->
+
+   <!-- <target name="build.server" depends="generate.server.stub">
+     <cc outtype="executable" subsystem="console"
+         outfile="${dist.dir}/studentRPCServer"
+         objdir="${obj.dir}/server">
+         <compiler name="g++"/>
+         <compilerarg value="${cxxflag}"/>
+         <includepath>
+            <pathelement path="${includepath}"/>
+         </includepath>
+         <libset dir="${server.lib.path}" libs="${server.lib.list}"/>
+         <fileset dir="${src.dir}/cpp/server"
+                  includes="Student.cpp, StudentCollection.cpp, StudentServer.cpp"/>
+      </cc>
+   </target> -->
+
+   <!-- <target name="generate.server.stub" depends="prepare">
+      <exec dir="${basedir}" executable="jsonrpcstub">
+         <arg line="${json.file.name} -cpp-server=studentserverstub"/>
+      </exec>
+      <copy file="studentserverstub.h"
+            tofile="${src.dir}/cpp/server/studentserverstub.h"/>
+      <delete file="studentserverstub.h"/>
+   </target> -->
+   <!-- <target name ="server" depends="build">
+      <echo message ="Hello Server"></echo>
+      <exec executable="./bin/guiSample"/>
+      <arg line="${userId} ${port}"/>
+   </target> -->
 
 </project>

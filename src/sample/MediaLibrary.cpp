@@ -7,6 +7,7 @@
 #include <fstream>
 #include <string>
 #include <vector>
+#include <json/json.h>
 
 using namespace std;
 /**
@@ -34,27 +35,70 @@ using namespace std;
  * @version January 2020
  */
 
-MediaLibrary::MediaLibrary(){
+std::string jsonString;
+std::vector<Album> list;
+
+MediaLibrary::MediaLibrary()
+{
    initLibraryFromJsonFile("media.json");
 }
 
-MediaLibrary::~MediaLibrary() {
+MediaLibrary::~MediaLibrary()
+{
    //cout << "MediaLibrary destructor.\n";
    media.clear();
 }
 
-bool MediaLibrary::initLibraryFromJsonFile(string jsonFileName){
+void printAlbum(std::vector<Album> album)
+{
+   //TODO: Delete later?
+
+   // for (vector<Album>::const_iterator i = album.begin(); i != album.end();)
+   // {
+   //    std::cout << *i << ' ';
+   // }
+
+   // std::copy(album.begin(), album.end(), std::ostream_iterator<std::string>(std::cout, " "));
+}
+
+bool MediaLibrary::addAlbumFromLastfmString(string jsonFileName, string jsonStringResult)
+{
+   Json::Reader reader;
+   Json::Value root;
+
+   jsonString = jsonStringResult;
+   bool parseSuccess = reader.parse(jsonString, root, false);
+
+   if (parseSuccess)
+   {
+      Json::Value wholeAlbum = root["album"];
+
+      Album newAlbum = Album(wholeAlbum);
+
+      list.push_back(newAlbum);
+   }
+}
+
+void MediaLibrary::setLastFMString(string lastFM)
+{
+   jsonString = lastFM;
+}
+
+bool MediaLibrary::initLibraryFromJsonFile(string jsonFileName)
+{
    bool ret = false;
    Json::Reader reader;
    Json::Value root;
    std::ifstream json(jsonFileName.c_str(), std::ifstream::binary);
-   bool parseSuccess = reader.parse(json,root,false);
-   if(parseSuccess){
+   bool parseSuccess = reader.parse(json, root, false);
+   if (parseSuccess)
+   {
       Json::Value::Members mbr = root.getMemberNames();
-      for(vector<string>::const_iterator i = mbr.begin(); i!= mbr.end(); i++){
+      for (vector<string>::const_iterator i = mbr.begin(); i != mbr.end(); i++)
+      {
          //cout << *i << " " << endl;
          Json::Value jsonMedia = root[*i];
-         MediaDescription * aDesc = new MediaDescription(jsonMedia);
+         MediaDescription *aDesc = new MediaDescription(jsonMedia);
          media[*i] = *aDesc;
          cout << "adding ";
          aDesc->print();
@@ -64,11 +108,13 @@ bool MediaLibrary::initLibraryFromJsonFile(string jsonFileName){
    return ret;
 }
 
-bool MediaLibrary::toJsonFile(string jsonFileName){
+bool MediaLibrary::toJsonFile(string jsonFileName)
+{
    bool ret = false;
    Json::Value jsonLib;
-   for(std::map<string,MediaDescription>::iterator i = media.begin();
-                                                         i!= media.end(); i++){
+   for (std::map<string, MediaDescription>::iterator i = media.begin();
+        i != media.end(); i++)
+   {
       string key = i->first;
       cout << key << " " << endl;
       MediaDescription aMedia = media[key];
@@ -81,17 +127,20 @@ bool MediaLibrary::toJsonFile(string jsonFileName){
    return true;
 }
 
-MediaDescription MediaLibrary::get(string aTitle){
+MediaDescription MediaLibrary::get(string aTitle)
+{
    //cout << "get: " << aTitle << endl;
    MediaDescription aMedia = media[aTitle];
    return aMedia;
 }
 
-vector<string> MediaLibrary::getTitles(){
+vector<string> MediaLibrary::getTitles()
+{
    //cout << "getTitles: " << endl;
    vector<string> myVec;
-   for(map<string,MediaDescription>::iterator it = media.begin();
-                                              it != media.end();++it){
+   for (map<string, MediaDescription>::iterator it = media.begin();
+        it != media.end(); ++it)
+   {
       myVec.push_back(it->first);
       //cout << it->first << "\n";
    }

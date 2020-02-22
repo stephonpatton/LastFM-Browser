@@ -31,13 +31,20 @@ using namespace std;
  *         Software Engineering, CIDSE, IAFSE, ASU Poly
  * @version January 2020
  */
-class MediaLibrary {
+
+#include <vector>
+class MediaLibrary
+{
 protected:
    std::map<std::string, MediaDescription> media;
 
 public:
+   std::vector<std::string> albums;
    MediaLibrary();
    ~MediaLibrary();
+   bool addAlbumFromLastfmString(std::string jsonFileName, std::string jsonString);
+   void setLastFMString(std::string lastfm);
+   void printAlbum(std::vector<Album> album);
 
    bool initLibraryFromJsonFile(string jsonFileName);
    bool toJsonFile(string jsonFileName);

@@ -1,26 +1,26 @@
 <?xml version='1.0' encoding='UTF-8'?>
 <history>
    <processor signature="gcc noversion nomachine -std=c++14 -c -I../../../../usr/local/include">
-      <target file="MediaClientGui.o" lastModified="1706af5390e">
-         <source file="../src/sample/MediaClientGui.cpp" lastModified="17002a9d710"/>
+      <target file="MediaClientGui.o" lastModified="1707e2992b6">
+         <source file="../src/sample/MediaClientGui.cpp" lastModified="1707e298274"/>
       </target>
       <target file="MediaDescription.o" lastModified="1706af53f1c">
          <source file="../src/sample/MediaDescription.cpp" lastModified="16fe9348960"/>
       </target>
-      <target file="MusicLibrary.o" lastModified="1706b02a6eb">
+      <target file="Album.o" lastModified="1707db3707b">
+         <source file="../src/sample/Album.cpp" lastModified="1706b06db3b"/>
+      </target>
+      <target file="MusicLibrary.o" lastModified="1707db373f8">
          <source file="../src/sample/MusicLibrary.cpp" lastModified="1704c89a8e8"/>
       </target>
-      <target file="Album.o" lastModified="1706af543e3">
-         <source file="../src/sample/Album.cpp" lastModified="1706a13f862"/>
+      <target file="samplemain.o" lastModified="1707e299588">
+         <source file="../src/sample/samplemain.cpp" lastModified="1707deac854"/>
       </target>
-      <target file="samplemain.o" lastModified="1706af54220">
-         <source file="../src/sample/samplemain.cpp" lastModified="17064188456"/>
-      </target>
-      <target file="MediaLibrary.o" lastModified="1706af53d26">
+      <target file="MediaLibrary.o" lastModified="1707db36abb">
          <source file="../src/sample/MediaLibrary.cpp" lastModified="1706413b5a1"/>
       </target>
-      <target file="Track.o" lastModified="1706afdf42c">
-         <source file="../src/sample/Track.cpp" lastModified="1706afde741"/>
+      <target file="Track.o" lastModified="1707f1182e7">
+         <source file="../src/sample/Track.cpp" lastModified="1707f117061"/>
       </target>
    </processor>
 </history>

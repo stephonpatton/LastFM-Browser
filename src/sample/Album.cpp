@@ -40,10 +40,10 @@ using namespace std;
 // Album::Album(Album &album)
 // {
 // }
+
+Track tracks = Track();
 Album::Album()
 {
-    Track track = Track();
-    track.artist = "Stephon";
 }
 Album::~Album()
 {
@@ -72,6 +72,7 @@ Album Album::parseLastFMJson(std::string aJsonString)
 
 void Album::addTrack(Track track)
 {
+    Album::tracks.push_back(track);
 }
 
 //Track Album::getTrack(Track track) {

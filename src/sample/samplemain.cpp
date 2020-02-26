@@ -142,6 +142,8 @@ public:
          string jsonFile = "media.json";
          MediaLibrary lib = MediaLibrary();
          lib.addAlbumFromLastfmString("medias.json", aString);
+         Track track = Track();
+         track.parseLastFMJson(aString);
 
          std::cout << aString << std::endl;
       }

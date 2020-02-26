@@ -52,80 +52,80 @@ using namespace std;
  * @file    MediaClientGui.cpp
  * @date    January, 2020
  **/
-class MediaClientGui : public Fl_Window {
+class MediaClientGui : public Fl_Window
+{
 protected:
-
-   Fl_Box * box;
-   Fl_PNG_Image * png;
+   Fl_Box *box;
+   Fl_PNG_Image *png;
 
    /**
     * tree is the Fl_Tree object that occupies the left side of the window.
     * this tree control provides the ability to add and remove items and to
     * manipulate and query the tree when an exception occurs.
     */
-   Fl_Tree * tree;
+   Fl_Tree *tree;
 
    /**
     * titleInput is the Fl_Input object labelled Title
     * Its to display, or for the user to enter
     * the album's track tile.
     */
-   Fl_Input * trackInput;
+   Fl_Input *trackInput;
 
    /**
     * albumInput is the Fl_Input object labelled Album
     * Its for the user to enter the media album. For videos, genre is
     * used to organize video, and album is ignored.
     */
-   Fl_Input * albumInput;
+   Fl_Input *albumInput;
 
    /**
     * authorInput is the Fl_Input object labelled Artist
     * Its for the user to enter the artist of the track/album
     */
-   Fl_Input * authorInput;
+   Fl_Input *authorInput;
 
    /**
     * rankInput is the Fl_Input object labelled Rank
     * Its for the display and entry of a track's rank within the album.
     */
-   Fl_Input * rankInput;
+   Fl_Input *rankInput;
 
    /**
     * timeInput is the Fl_Input object labelled Time.
     * It provides the display of album or track play time in form: hh:mm:ss
     */
-   Fl_Input * timeInput;
+   Fl_Input *timeInput;
 
    /**
     * genreChoice is the Fl_Choice object labelled Genre.
     * It provides for the display of the album genre.
     */
-   Fl_Choice * genreChoice;
+   Fl_Choice *genreChoice;
 
    /**
     * summaryMLI is the Fl_Multiline_Input object in the lower right panel.
     * It provides for the display and changing an album's summary.
     */
-   Fl_Multiline_Input * summaryMLI;
+   Fl_Multiline_Input *summaryMLI;
 
    /**
     * fileNameInput is the Fl_Input object labelled File Name.
     * It provides the display or entry of mp3 file associated with a track.
     */
-   Fl_Input * fileNameInput;
+   Fl_Input *fileNameInput;
 
    /**
     * albSrchInput is the Fl_Input object labelled Album in the left panel.
     * It provides entry for album last.fm search.
     */
-   Fl_Input * albSrchInput;
+   Fl_Input *albSrchInput;
 
    /**
     * artSrchInput is the Fl_Input object labelled Artist.
     * It provides the display or entry of artist for last.fm search
     */
-   Fl_Input * artSrchInput;
+   Fl_Input *artSrchInput;
 
    /**
     * searchButt is the Fl_Button object labelled Search.
@@ -133,7 +133,7 @@ protected:
     * information, the searchButt is clicked to initiate a last.fm album
     * search. The results of the search are parsed and displayed in the tree.
     */
-   Fl_Button * searchButt;
+   Fl_Button *searchButt;
 
    /**
     * menubar is the Fl_Menu_bar object with menus: File,Album,Track
@@ -142,7 +142,8 @@ protected:
 
 public:
    //MediaClientGui(const char * name = "Ser321") : Fl_Window(635,350,name) {
-   MediaClientGui(const char * name = "Ser321") : Fl_Window(980,500,name) {
+   MediaClientGui(const char *name = "Ser321") : Fl_Window(980, 500, name)
+   {
       begin();
 
       menubar = new Fl_Menu_Bar(0, 0, this->w(), 25);
@@ -159,17 +160,17 @@ public:
 
       albSrchInput = new Fl_Input(55, 35, 220, 25);
       albSrchInput->label("Album");
-      albSrchInput->value("The Complete Greatest Hits");
+      albSrchInput->value("Purpose");
 
       artSrchInput = new Fl_Input(50, 80, 150, 25);
       artSrchInput->label("Artist");
-      artSrchInput->value("Fleetwood Mac");
+      artSrchInput->value("Justin Bieber");
 
-      searchButt = new Fl_Button(220, 80, 90, 25,"Search");
+      searchButt = new Fl_Button(220, 80, 90, 25, "Search");
 
       // create a tree control at position x=10, y=10. Its 150 pixels wide
       // and window height less 20 pixels high. Add some sample tree nodes.
-      tree = new Fl_Tree(10, 120, 325, this->h()-135);
+      tree = new Fl_Tree(10, 120, 325, this->h() - 135);
       tree->add("Flintstones/Fred");
       tree->add("Flintstones/Wilma");
       tree->close("/Flintstones");
@@ -184,7 +185,7 @@ public:
        */
       albumInput = new Fl_Input(385, 35, 265, 25);
       albumInput->label("Album");
-      albumInput->value("The Complete Greatest Hits");
+      albumInput->value("Purpose");
 
       trackInput = new Fl_Input(700, 35, 265, 25);
       trackInput->label("Track");
@@ -192,7 +193,7 @@ public:
 
       authorInput = new Fl_Input(385, 80, 220, 25);
       authorInput->label("Artist");
-      authorInput->value("Fleetwood Mac");
+      authorInput->value("Justin Bieber");
 
       rankInput = new Fl_Input(680, 80, 60, 25);
       rankInput->label("Rank");
@@ -201,22 +202,22 @@ public:
       timeInput = new Fl_Input(815, 80, 100, 25);
       timeInput->label("Time");
       timeInput->value("00:00:00");
-      
+
       fileNameInput = new Fl_Input(420, 130, 310, 25);
       fileNameInput->label("File Name");
       fileNameInput->value("FleetwoodMac/08AsLongAsYouFollow.mp3");
-      
+
       // create the media genre drop-down (input_choice)
       genreChoice = new Fl_Choice(815, 130, 125, 25, "Genre");
       genreChoice->add("rock");
       genreChoice->add("blues");
       genreChoice->value(0); // set the control initially to rock
 
-      box = new Fl_Box(350,180,320-20,320-20);     
-      png = new Fl_PNG_Image("FleetWoodMacGreatest.png");      
+      box = new Fl_Box(350, 180, 320 - 20, 320 - 20);
+      png = new Fl_PNG_Image("FleetWoodMacGreatest.png");
       box->image(png);
 
-      summaryMLI = new Fl_Multiline_Input(665,180,300,300,0);
+      summaryMLI = new Fl_Multiline_Input(665, 180, 300, 300, 0);
       summaryMLI->wrap(1);
 
       end();

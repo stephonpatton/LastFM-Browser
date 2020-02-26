@@ -87,7 +87,7 @@
       <source file="../../../../../usr/local/Cellar/fltk/1.3.5/include/FL/Fl_Slider.H" lastModified="16942d4fb00">
          <include file="../../../../../usr/local/Cellar/fltk/1.3.5/include/FL/Fl_Valuator.H"/>
       </source>
-      <source file="../src/sample/Album.cpp" lastModified="1706a14041a">
+      <source file="../src/sample/Album.cpp" lastModified="1706b06e6f3">
          <include file="../src/sample/Album.hpp"/>
          <include file="../../../../../usr/local/Cellar/jsoncpp/1.9.1/include/json/json.h"/>
          <include file="../../../../../usr/local/Cellar/jsoncpp/1.9.1/include/json/value.h"/>
@@ -136,6 +136,10 @@
       </source>
       <source file="../../../../../usr/local/Cellar/fltk/1.3.5/include/FL/Fl_Text_Buffer.H" lastModified="16942d4fee8">
          <include file="../../../../../usr/local/Cellar/fltk/1.3.5/include/FL/Fl_Export.H"/>
+      </source>
+      <source file="../src/sample/MusicLibrary.hpp" lastModified="1706b0296fb">
+         <include file="../src/sample/Album.hpp"/>
+         <include file="../src/sample/Track.hpp"/>
       </source>
       <source file="../src/sample/MediaLibrary.hpp" lastModified="17064164b5c">
          <include file="../src/sample/MediaDescription.hpp"/>
@@ -191,9 +195,10 @@
       <source file="../src/sample/MusicLibrary.cpp" lastModified="1704c89a8e8">
          <include file="../src/sample/MusicLibrary.hpp"/>
       </source>
-      <source file="../src/sample/Track.hpp" lastModified="1706a2363a6">
+      <source file="../src/sample/Track.hpp" lastModified="1707db36380">
+         <include file="../../../../../usr/local/Cellar/jsoncpp/1.9.1/include/json/json.h"/>
       </source>
-      <source file="../src/sample/MediaClientGui.cpp" lastModified="17002a9e2c8">
+      <source file="../src/sample/MediaClientGui.cpp" lastModified="1707e298e2c">
          <include file="../../../../../usr/local/Cellar/fltk/1.3.5/include/FL/Fl.H"/>
          <include file="../../../../../usr/local/Cellar/fltk/1.3.5/include/FL/Fl_Window.H"/>
          <include file="../../../../../usr/local/Cellar/fltk/1.3.5/include/FL/Fl_Button.H"/>
@@ -243,7 +248,7 @@
          <include file="../../../../../usr/local/Cellar/fltk/1.3.5/include/FL/Fl_Tree_Item_Array.H"/>
          <include file="../../../../../usr/local/Cellar/fltk/1.3.5/include/FL/Fl_Tree_Prefs.H"/>
       </source>
-      <source file="../src/sample/samplemain.cpp" lastModified="17064189fae">
+      <source file="../src/sample/samplemain.cpp" lastModified="1707deae3ac">
          <include file="../src/sample/MediaClientGui.cpp"/>
          <include file="../src/sample/MediaLibrary.hpp"/>
          <include file="../src/sample/Album.hpp"/>
@@ -262,9 +267,6 @@
       <source file="../../../../../usr/local/Cellar/jsoncpp/1.9.1/include/json/reader.h" lastModified="16be2f8e5b8">
          <include file="../../../../../usr/local/Cellar/jsoncpp/1.9.1/include/json/features.h"/>
          <include file="../../../../../usr/local/Cellar/jsoncpp/1.9.1/include/json/value.h"/>
-      </source>
-      <source file="../src/sample/Track.cpp" lastModified="1706afdef11">
-         <include file="../src/sample/Track.hpp"/>
       </source>
       <source file="../../../../../usr/local/Cellar/fltk/1.3.5/include/FL/abi-version.h" lastModified="16942d4fb00">
       </source>

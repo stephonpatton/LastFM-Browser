@@ -26,3 +26,37 @@
  **/
 
 #include "MusicLibrary.hpp"
+#include <stdlib.h>
+
+using namespace std;
+
+MusicLibrary::MusicLibrary()
+{
+}
+
+string getAlbumNames()
+{
+    return "";
+}
+
+Album getAlbum(string title)
+{
+    Album album = Album();
+    return album;
+}
+
+void addAlbum(string lastFMstring) {
+
+}
+
+void removeAlbum(string removeAlbum) {
+
+}
+
+void saveLibraryToFile() {
+
+}
+
+void restoreLibraryFromFile() {
+    
+}

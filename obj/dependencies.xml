@@ -87,7 +87,7 @@
       <source file="../../../../../usr/local/Cellar/fltk/1.3.5/include/FL/Fl_Slider.H" lastModified="16942d4fb00">
          <include file="../../../../../usr/local/Cellar/fltk/1.3.5/include/FL/Fl_Valuator.H"/>
       </source>
-      <source file="../src/sample/Album.cpp" lastModified="1706b06e6f3">
+      <source file="../src/sample/Album.cpp" lastModified="170849021d3">
          <include file="../src/sample/Album.hpp"/>
          <include file="../../../../../usr/local/Cellar/jsoncpp/1.9.1/include/json/json.h"/>
          <include file="../../../../../usr/local/Cellar/jsoncpp/1.9.1/include/json/value.h"/>
@@ -136,10 +136,6 @@
       </source>
       <source file="../../../../../usr/local/Cellar/fltk/1.3.5/include/FL/Fl_Text_Buffer.H" lastModified="16942d4fee8">
          <include file="../../../../../usr/local/Cellar/fltk/1.3.5/include/FL/Fl_Export.H"/>
-      </source>
-      <source file="../src/sample/MusicLibrary.hpp" lastModified="1706b0296fb">
-         <include file="../src/sample/Album.hpp"/>
-         <include file="../src/sample/Track.hpp"/>
       </source>
       <source file="../src/sample/MediaLibrary.hpp" lastModified="17064164b5c">
          <include file="../src/sample/MediaDescription.hpp"/>
@@ -191,9 +187,6 @@
          <include file="../../../../../usr/local/Cellar/jsoncpp/1.9.1/include/json/autolink.h"/>
       </source>
       <source file="../../../../../usr/local/Cellar/curlpp/0.8.1/include/curlpp/internal/SList.hpp" lastModified="15aa7ca7238">
-      </source>
-      <source file="../src/sample/MusicLibrary.cpp" lastModified="1704c89a8e8">
-         <include file="../src/sample/MusicLibrary.hpp"/>
       </source>
       <source file="../src/sample/Track.hpp" lastModified="1707db36380">
          <include file="../../../../../usr/local/Cellar/jsoncpp/1.9.1/include/json/json.h"/>
@@ -267,6 +260,9 @@
       <source file="../../../../../usr/local/Cellar/jsoncpp/1.9.1/include/json/reader.h" lastModified="16be2f8e5b8">
          <include file="../../../../../usr/local/Cellar/jsoncpp/1.9.1/include/json/features.h"/>
          <include file="../../../../../usr/local/Cellar/jsoncpp/1.9.1/include/json/value.h"/>
+      </source>
+      <source file="../src/sample/Track.cpp" lastModified="170847cc936">
+         <include file="../src/sample/Track.hpp"/>
       </source>
       <source file="../../../../../usr/local/Cellar/fltk/1.3.5/include/FL/abi-version.h" lastModified="16942d4fb00">
       </source>

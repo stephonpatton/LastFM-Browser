@@ -33,6 +33,7 @@
 class MusicLibrary
 {
 public:
+    MusicLibrary();
     std::vector<Album> albums;
     std::string getAlbumNames();
     Album getAlbum(std::string title);

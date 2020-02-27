@@ -75,7 +75,7 @@ Track Track::parseLastFMJson(string aJsonString)
             cout << "Size of root: " << jsonM.size() << endl;
             for (int index = 0; index < jsonM["tracks"]["track"].size(); index++)
             {
-                cout << "Current jsonM: " << jsonM["tracks"]["track"][index]["url"] << endl;
+                cout << "Current jsonM: " << jsonM["tracks"]["track"][index] << endl;
             }
             if (*i == "album")
             {

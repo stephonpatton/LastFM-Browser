@@ -73,6 +73,8 @@ Album Album::parseLastFMJson(std::string aJsonString)
 void Album::addTrack(Track track)
 {
     Album::tracks.push_back(track);
+    // cout << "Track: " << track << "added" << endl;
+    // cout << "Total Tracks: " << tracks << endl;
 }
 
 //Track Album::getTrack(Track track) {

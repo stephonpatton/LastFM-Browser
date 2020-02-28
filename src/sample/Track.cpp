@@ -37,12 +37,11 @@ Track::Track()
     artist = "";
     rank = 0;
     duration = "";
-    file_name = "";
 }
 
-Track Track::parseLastFMJson(string aJsonString)
+void Track::parseLastFMJson(string aJsonString)
 {
-    Track track = Track();
+
     Json::Reader reader;
     Json::Value root;
 
@@ -75,42 +74,33 @@ Track Track::parseLastFMJson(string aJsonString)
             cout << "Size of root: " << jsonM.size() << endl;
             for (int index = 0; index < jsonM["tracks"]["track"].size(); index++)
             {
-                cout << "Current jsonM: " << jsonM["tracks"]["track"][index] << endl;
+                Track track = Track();
+                cout << "Current jsonM: " << jsonM["tracks"]["track"][index]["name"] << endl;
+                track.artist = jsonM["tracks"]["track"][index]["artist"]["name"].asString();
+                track.track_name = jsonM["tracks"]["track"][index]["name"].asString();
+                string temp = jsonM["tracks"]["track"][index]["@attr"]["rank"].asString();
+                track.rank = stoi(temp);
+                track.duration = jsonM["tracks"]["track"][index]["duration"].asString();
+                cout << "Track artist = " << track.artist << endl;
+                cout << "Track name = " << track.track_name << endl;
+                cout << "Track Rank = " << track.rank << endl;
+                cout << "Track Duration = " << track.duration << endl;
             }
             if (*i == "album")
             {
                 cout << "Success!" << endl;
-                // cout << "Tracks: " << jsonM << endl;
             }
-            else if (*i == "tracks")
-            {
-                cout << "Tracks: " << jsonM.asString() << endl;
-            }
-            // if (*i == "album")
-            // {
-            //     cout << "Tracks : " << *i << endl;
-            // }
+
             else
             {
                 cout << "No tracks" << endl;
             }
-
-            if (jsonM["tracks"]["track"] == "name")
-            {
-                cout << "HELLO" << endl;
-                cout << "Tracks: " << jsonM["tracks"][0] << endl;
-            }
-            // cout << "current jsonM : " << jsonM.asString() << endl;
-
-            // cout << "From track parse: " << jsonM << endl;
         }
     }
     else
     {
         cout << "Failed to parse JSON " << reader.getFormatedErrorMessages();
     }
-
-    return track;
 }
 
 vector<std::string> const &getTrack()

@@ -41,9 +41,15 @@ using namespace std;
 // {
 // }
 
-Track tracks = Track();
+// Track tracks = Track();
 Album::Album()
 {
+    album_name = "";
+    artist = "";
+    image_url = "";
+    genre = "";
+    run_time = "";
+    summary = "";
 }
 Album::~Album()
 {
@@ -77,27 +83,16 @@ Album Album::parseLastFMJson(std::string aJsonString)
         for (vector<string>::const_iterator i = mbr.begin(); i != mbr.end(); i++)
         {
             Json::Value jsonM = root[*i];
-            // if (*i == "album")
-            // {
-            //     const Json::Value track_array = root["tracks"];
-            //     // for (int index = 0; index < track_array.size(); ++index)
-            //     // {
-            //     //     cout << "Track array : " << track_array[index].asString() << endl;
-            //     // }
-            //     // cout << "From track class: " << track_array << endl;
-            //     // cout << "From track parse: " << jsonM << endl;
 
-            //     // track.track_name = jsonM.asString();
-            //     // cout << "TRACK NAME IS" << track.track_name << endl;
-            // }
-            // for (int index = 0; index < root.size(); ++index)
-            // {
-            //     // cout << "Root: " << root[index].asString();
-            // }
-            // if (*i == "album")
+            if (*i == "album")
+            {
+                cout << "Success" << endl;
+            }
+            cout << *i << endl;
             cout << "Size of Album: " << jsonM.size() << endl;
             for (int index = 0; index < jsonM["tracks"]["track"].size(); index++)
             {
+                Track track = Track();
                 cout << "Current track: " << jsonM["tracks"]["track"][index] << endl;
             }
 

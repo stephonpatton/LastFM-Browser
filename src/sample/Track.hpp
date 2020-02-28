@@ -40,13 +40,12 @@ class Track
 public:
     // vector<std::string> tracks;
     Track();
-    Track parseLastFMJson(std::string aJsonString);
+    void parseLastFMJson(std::string aJsonString);
 
     std::string track_name;
     std::string artist;
     int rank;
     std::string duration;
-    std::string file_name;
 
     // vector<std::string> &getTrack();
     // void setKey(std::string key);

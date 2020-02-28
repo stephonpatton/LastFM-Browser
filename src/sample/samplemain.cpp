@@ -137,13 +137,14 @@ public:
          myRequest.perform();
          std::string aString = os.str();
 
+         //TODO: Delete if not needed
          Album album = Album();
          album.parseLastFMJson(aString);
          string jsonFile = "media.json";
          MediaLibrary lib = MediaLibrary();
          lib.addAlbumFromLastfmString("medias.json", aString);
-         Track track = Track();
-         track.parseLastFMJson(aString);
+         // Track track = Track();
+         // track.parseLastFMJson(aString);
 
          std::cout << aString << std::endl;
       }

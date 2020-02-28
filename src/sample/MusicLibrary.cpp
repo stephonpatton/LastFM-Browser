@@ -45,18 +45,18 @@ Album getAlbum(string title)
     return album;
 }
 
-void addAlbum(string lastFMstring) {
-
+void addAlbum(string lastFMstring)
+{
 }
 
-void removeAlbum(string removeAlbum) {
-
+void removeAlbum(string removeAlbum)
+{
 }
 
-void saveLibraryToFile() {
-
+void saveLibraryToFile()
+{
 }
 
-void restoreLibraryFromFile() {
-    
+void restoreLibraryFromFile()
+{
 }
